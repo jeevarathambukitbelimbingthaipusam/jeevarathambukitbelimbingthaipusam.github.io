@@ -300,7 +300,7 @@ function App() {
     {!isLoggedIn && ( // Only show header if not logged in
     <header className="text-center mb-4" style={{ marginTop: '7%' }}>
       <img src={`${process.env.PUBLIC_URL}/logo512.png`} alt="EasyMart MALL Logo" style={{ width: '150px' }} />
-      <h1>EasyMart MALL Navigation</h1>
+      <h1>திருவிழா தேரின் நேரடி இடமறியல் அமைப்பு</h1>
     </header>
   )}
 
