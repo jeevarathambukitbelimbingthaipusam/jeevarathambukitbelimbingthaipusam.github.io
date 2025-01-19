@@ -34,37 +34,42 @@ function App() {
   }, []);
 
   const loadMap = (lat, long) => {
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAUjjIy9Sd5r8T5nxIinHbcseCvNHKKag4&callback=initMap`;
-    script.async = true;
-    script.defer = true;
-    window.initMap = function () {
-      const map = new window.google.maps.Map(document.getElementById("map"), {
-        center: { lat, lng: long },
-        zoom: 15,
-      });
+  const script = document.createElement("script");
+  script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAUjjIy9Sd5r8T5nxIinHbcseCvNHKKag4&callback=initMap`;
+  script.async = true;
+  script.defer = true;
 
-      // Add a marker
-      new window.google.maps.Marker({
-        position: { lat, lng: long },
-        map: map,
-      });
-    };
+  window.initMap = function () {
+    const map = new window.google.maps.Map(document.getElementById("map"), {
+      center: { lat, lng: long },
+      zoom: 15, // Set the zoom level
+      // No styles are defined here, so the default Google Map style is applied
+    });
 
-    document.body.appendChild(script);
+    // Add a marker
+    new window.google.maps.Marker({
+      position: { lat, lng: long },
+      map: map,
+    });
   };
 
-  const openInMaps = (platform) => {
-    const { lat, long } = coordinates;
-    if (platform === "google") {
-      const googleMapsUrl = `https://maps.google.com/maps?q=${lat},${long}`;
-      window.location.href = googleMapsUrl;
-    } else if (platform === "apple") {
-      const appleMapsUrl = `https://maps.apple.com/?ll=${lat},${long}`;
-      window.location.href = appleMapsUrl;
-    }
-  };
+  document.body.appendChild(script);
+};
 
+
+const openInMaps = (platform) => {
+  const { lat, long } = coordinates;
+  const label = "Current Location"; // Label for the marker
+  if (platform === "google") {
+    const googleMapsUrl = `https://www.google.com/maps?q=loc:${lat},${long}&label=${label}`;
+    window.open(googleMapsUrl, "_blank");
+  } else if (platform === "apple") {
+    const appleMapsUrl = `https://maps.apple.com/?ll=${lat},${long}&q=${label}`;
+    window.open(appleMapsUrl, "_blank");
+  }
+};
+
+  
   return (
     <div style={{ textAlign: "center", height: "100vh", display: "flex", flexDirection: "column" }}>
       {/* Logo and Title */}
