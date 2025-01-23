@@ -79,12 +79,12 @@ const openInMaps = (platform) => {
           alt="Logo"
           style={{
             width: "200px",
-            height: "100px",
+            height: "200px",
             objectFit: "contain",
             marginBottom: "10px",
           }}
         />
-        <h1 style={{ margin: 0 }}>திருவிழா தேரின் நேரடி இடமறியல் அமைப்பு</h1>
+        <h1 style={{ margin: 0 }}>தைப்பூச ஜீவ இரத ஊர்வலம் நேரடி இடமறியல்  அமைப்பு   </h1>
 
         {/* Buttons */}
         <div style={{ marginTop: "10px", display: "flex", justifyContent: "center", gap: "10px" }}>
