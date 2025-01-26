@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 
@@ -137,7 +137,7 @@ function App() {
                     Open in Apple Maps
                   </button>
                   <button
-                    onClick={() => window.open("http://localhost:3000/app", "_blank")}
+                    onClick={() => window.open("/#/app", "_blank")}
                     style={{
                       padding: "10px 20px",
                       fontSize: "14px",
@@ -167,89 +167,88 @@ function App() {
         />
         {/* /app route */}
         <Route
-  path="/app"
-  element={
-    <div
-      style={{
-        textAlign: "center",
-        display: "flex",
-        justifyContent: "center",
-        padding: "50px",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      {/* Title and Buttons (Side by Side) */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "80%",
-          marginBottom: "20px",
-        }}
-      >
-        {/* Left Section */}
-        <div style={{ flex: 1, textAlign: "center" }}>
-          <h1>வாழ்க வளமுடன் !</h1>
-          <button
-            onClick={() => window.open("http://example.com/your-apk", "_blank")}
-            style={{
-              padding: "10px 20px",
-              fontSize: "14px",
-              backgroundColor: "#FF5733",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            Download APK
-          </button>
-        </div>
+          path="/app"
+          element={
+            <div
+              style={{
+                textAlign: "center",
+                display: "flex",
+                justifyContent: "center",
+                padding: "50px",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              {/* Title and Buttons (Side by Side) */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "80%",
+                  marginBottom: "20px",
+                }}
+              >
+                {/* Left Section */}
+                <div style={{ flex: 1, textAlign: "center" }}>
+                  <h1>வாழ்க வளமுடன் !</h1>
+                  <button
+                    onClick={() => window.open("http://example.com/your-apk", "_blank")}
+                    style={{
+                      padding: "10px 20px",
+                      fontSize: "14px",
+                      backgroundColor: "#FF5733",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Download APK
+                  </button>
+                </div>
 
-        {/* Right Section */}
-        <div style={{ flex: 1, textAlign: "center" }}>
-          <h1>வேல் முருகா வேல் !</h1>
-          <button
-            onClick={() => window.open("https://example.com/ios-app", "_blank")}
-            style={{
-              padding: "10px 20px",
-              fontSize: "14px",
-              backgroundColor: "#28A745",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            Download iOS App
-          </button>
-        </div>
-      </div>
+                {/* Right Section */}
+                <div style={{ flex: 1, textAlign: "center" }}>
+                  <h1>வேல் முருகா வேல் !</h1>
+                  <button
+                    onClick={() => window.open("https://example.com/ios-app", "_blank")}
+                    style={{
+                      padding: "10px 20px",
+                      fontSize: "14px",
+                      backgroundColor: "#28A745",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Download iOS App
+                  </button>
+                </div>
+              </div>
 
-      {/* Centered Image */}
-      <div>
-        <img
-          src="logo512.png"
-          alt="Center Image"
-          style={{
-            width: "300px",
-            height: "auto",
-            objectFit: "contain",
-            marginTop: "20px",
-          }}
+              {/* Centered Image */}
+              <div>
+                <img
+                  src="logo512.png"
+                  alt="Center Image"
+                  style={{
+                    width: "300px",
+                    height: "auto",
+                    objectFit: "contain",
+                    marginTop: "20px",
+                  }}
+                />
+              </div>
+
+              {/* Hello World and Welcome Text */}
+              <div style={{ marginTop: "20px" }}>
+                <h1>யாமிருக்க பயமென் !!!</h1>
+                <h1>வேலும் மயிலும் துணை</h1>
+              </div>
+            </div>
+          }
         />
-      </div>
-
-      {/* Hello World and Welcome Text */}
-      <div style={{ marginTop: "20px" }}>
-        <h1>யாமிருக்க பயமென் !!!</h1>
-        <h1>வேலும் மயிலும் துணை</h1>
-      </div>
-    </div>
-  }
-/>
-
       </Routes>
     </Router>
   );
