@@ -205,7 +205,7 @@ function App() {
                         objectFit: "cover", // Ensures the image covers the area
                       }}
                     />
-                    <h2 style={{ fontWeight: "bold" }}>வாழ்க வளமுடன்     ! &nbsp;</h2>
+                    <h2 style={{ fontWeight: "bold" }}>வாழ்க வளமுடன்! &nbsp;</h2>
                   </div>
 
                   {/* Right Section */}
@@ -220,7 +220,7 @@ function App() {
                         objectFit: "cover", // Ensures the image covers the area
                       }}
                     />
-                    <h2 style={{ fontWeight: "bold" }}>வேல் முருகா வேல் !</h2>
+                    <h2 style={{ fontWeight: "bold" }}>வேல் முருகா வேல்!</h2>
                   </div>
                 </div>
 
