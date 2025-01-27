@@ -205,8 +205,8 @@ function App() {
                         objectFit: "cover", // Ensures the image covers the area
                       }}
                     />
-                    <h2 style={{ fontWeight: "bold" }}>வாழ்க வளமுடன் !</h2>
-                    <button
+<h2 style={{ fontWeight: "bold" }}>வாழ்க வளமுடன் ! &nbsp;</h2>
+<button
                       onClick={() =>
                         window.open(
                           "https://drive.google.com/drive/folders/1hpqIuyacLbxOj2J1roIvB9hH-NvUcBoL?usp=sharing",
@@ -254,7 +254,7 @@ function App() {
                     className="img-fluid"
                     style={{
                       width: "300px",
-                      height: "180px",
+                      height: "176px",
                       objectFit: "contain",
                     }}
                   />
