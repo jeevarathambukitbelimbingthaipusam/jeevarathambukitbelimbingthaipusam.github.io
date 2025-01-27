@@ -107,7 +107,9 @@ function App() {
                     width: "200px",
                     height: "160px",
                     objectFit: "contain",
-                    marginBottom: "10px",
+                    marginBottom: "-1px",
+                    marginTop: "-10px",
+
                   }}
                 />
                 <h2
