@@ -108,7 +108,7 @@ function App() {
                     height: "160px",
                     objectFit: "contain",
                     marginBottom: "-1px",
-                    marginTop: "-10px",
+                    marginTop: "1px",
 
                   }}
                 />
@@ -186,7 +186,7 @@ function App() {
                   width: "100%",
                   height: "100%",
                   position: "relative", // Ensure map stays responsive
-                  marginTop: "-25px", // Adjust the top margin here
+                  marginTop: "-20px", // Adjust the top margin here
 
                 }}
               ></div>
