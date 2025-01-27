@@ -184,6 +184,8 @@ function App() {
                   width: "100%",
                   height: "100%",
                   position: "relative", // Ensure map stays responsive
+                  marginTop: "-25px", // Adjust the top margin here
+
                 }}
               ></div>
             </div>
