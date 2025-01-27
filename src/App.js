@@ -205,18 +205,7 @@ function App() {
                         objectFit: "cover", // Ensures the image covers the area
                       }}
                     />
-<h2 style={{ fontWeight: "bold" }}>வாழ்க வளமுடன் ! &nbsp;</h2>
-<button
-                      onClick={() =>
-                        window.open(
-                          "https://www.dropbox.com/scl/fo/y0wdrpqgkaa67h2n0s04v/ACuChpqowZ2lv0oDlmLf7CU?rlkey=tlnct7eawkoudmcvuundej35n&st=o6madij7&dl=0",
-                          "_blank"
-                        )
-                      }
-                      className="btn btn-danger mt-3"
-                    >
-                      Download APK
-                    </button>
+                    <h2 style={{ fontWeight: "bold" }}>வாழ்க வளமுடன்     ! &nbsp;</h2>
                   </div>
 
                   {/* Right Section */}
@@ -232,6 +221,28 @@ function App() {
                       }}
                     />
                     <h2 style={{ fontWeight: "bold" }}>வேல் முருகா வேல் !</h2>
+                  </div>
+                </div>
+
+                {/* Buttons positioned below left and right sections */}
+                <div className="row my-3">
+                  {/* Download APK button below left section */}
+                  <div className="col-6 d-flex justify-content-center">
+                    <button
+                      onClick={() =>
+                        window.open(
+                          "https://www.dropbox.com/scl/fo/y0wdrpqgkaa67h2n0s04v/ACuChpqowZ2lv0oDlmLf7CU?rlkey=tlnct7eawkoudmcvuundej35n&st=o6madij7&dl=0",
+                          "_blank"
+                        )
+                      }
+                      className="btn btn-danger"
+                    >
+                      Download APK
+                    </button>
+                  </div>
+
+                  {/* Download iOS button below right section */}
+                  <div className="col-6 d-flex justify-content-center">
                     <button
                       onClick={() =>
                         window.open(
@@ -239,7 +250,7 @@ function App() {
                           "_blank"
                         )
                       }
-                      className="btn btn-success mt-3"
+                      className="btn btn-success"
                     >
                       Download iOS
                     </button>
