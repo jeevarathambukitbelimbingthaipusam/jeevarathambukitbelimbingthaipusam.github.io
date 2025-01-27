@@ -27,7 +27,7 @@ function App() {
       const data = snapshot.val();
       if (data && data.lat !== undefined && data.long !== undefined) {
         setCoordinates({ lat: data.lat, long: data.long });
-        loadMap(data.lat, data.long); // Load the map
+        loadMap(data.lat, data.long); // Load the map after getting data
       }
     });
 
@@ -35,13 +35,19 @@ function App() {
   }, []);
 
   const loadMap = (lat, long) => {
+    const mapDiv = document.getElementById("map");
+    if (!mapDiv) {
+      console.error("Map container not found.");
+      return;
+    }
+
     const script = document.createElement("script");
     script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAUjjIy9Sd5r8T5nxIinHbcseCvNHKKag4&callback=initMap`;
     script.async = true;
     script.defer = true;
 
     window.initMap = function () {
-      const map = new window.google.maps.Map(document.getElementById("map"), {
+      const map = new window.google.maps.Map(mapDiv, {
         center: { lat, lng: long },
         zoom: 15,
       });
@@ -81,6 +87,7 @@ function App() {
                 height: "100vh",
                 display: "flex",
                 flexDirection: "column",
+                fontFamily: '"Noto Sans Tamil", sans-serif', // Apply Noto Sans Tamil font
               }}
             >
               {/* Logo and Title */}
@@ -90,12 +97,17 @@ function App() {
                   alt="Logo"
                   style={{
                     width: "200px",
-                    height: "200px",
+                    height: "160px",
                     objectFit: "contain",
                     marginBottom: "10px",
                   }}
                 />
-                <h1 style={{ margin: 0 }}>
+                <h1
+                  style={{
+                    margin: 0,
+                    fontWeight: "bold", // Apply bold to the title
+                  }}
+                >
                   தைப்பூச ஜீவ இரத ஊர்வலம் நேரடி இடமறியல் அமைப்பு
                 </h1>
 
@@ -120,7 +132,7 @@ function App() {
                       cursor: "pointer",
                     }}
                   >
-                    Open in Google Maps
+                    Google Maps
                   </button>
                   <button
                     onClick={() => openInMaps("apple")}
@@ -134,7 +146,7 @@ function App() {
                       cursor: "pointer",
                     }}
                   >
-                    Open in Apple Maps
+                    Apple Maps
                   </button>
                   <button
                     onClick={() => window.open("/#/app", "_blank")}
@@ -165,88 +177,155 @@ function App() {
             </div>
           }
         />
-        {/* /app route */}
+        {/* /app route with Bootstrap */}
         <Route
           path="/app"
           element={
-            <div
-              style={{
-                textAlign: "center",
-                display: "flex",
-                justifyContent: "center",
-                padding: "50px",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              {/* Title and Buttons (Side by Side) */}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  width: "80%",
-                  marginBottom: "20px",
-                }}
-              >
-                {/* Left Section */}
-                <div style={{ flex: 1, textAlign: "center" }}>
-                  <h1>வாழ்க வளமுடன் !</h1>
-                  <button
-                    onClick={() => window.open("http://example.com/your-apk", "_blank")}
-                    style={{
-                      padding: "10px 20px",
-                      fontSize: "14px",
-                      backgroundColor: "#FF5733",
-                      color: "#fff",
-                      border: "none",
-                      borderRadius: "5px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Download APK
-                  </button>
+            <>
+              {/* Import Bootstrap CSS here for the /app page */}
+              <link
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+              />
+
+              <div className="container text-center">
+                <div className="row my-5">
+                  {/* Left Section */}
+                  <div className="col-6 d-flex flex-column align-items-center mb-4">
+                    <img
+                      src="3.png"
+                      alt="Logo"
+                      className="img-fluid mb-3"
+                      style={{
+                        width: "150px", // Fixed width
+                        height: "150px", // Fixed height
+                        objectFit: "cover", // Ensures the image covers the area
+                      }}
+                    />
+                    <h2
+                      style={{
+                        fontWeight: "bold", // Apply bold to the title in /app
+                      }}
+                    >
+                      வாழ்க வளமுடன் !
+                    </h2>
+                    <button
+                      onClick={() =>
+                        window.open(
+                          "https://drive.google.com/drive/folders/1hpqIuyacLbxOj2J1roIvB9hH-NvUcBoL?usp=sharing",
+                          "_blank"
+                        )
+                      }
+                      className="btn btn-danger mt-3"
+                    >
+                      Download APK
+                    </button>
+                  </div>
+
+                  {/* Right Section */}
+                  <div className="col-6 d-flex flex-column align-items-center mb-4">
+                    <img
+                      src="4.png"
+                      alt="Logo"
+                      className="img-fluid mb-3"
+                      style={{
+                        width: "150px", // Fixed width
+                        height: "150px", // Fixed height
+                        objectFit: "cover", // Ensures the image covers the area
+                      }}
+                    />
+                    <h2
+                      style={{
+                        fontWeight: "bold", // Apply bold to the title in /app
+                      }}
+                    >
+                      வேல் முருகா வேல் !
+                    </h2>
+                    <button
+                      onClick={() =>
+                        window.open(
+                          "https://jeevarathambukitbelimbingthaipusam.github.io/",
+                          "_blank"
+                        )
+                      }
+                      className="btn btn-success mt-3"
+                    >
+                      Download iOS App
+                    </button>
+                  </div>
                 </div>
 
-                {/* Right Section */}
-                <div style={{ flex: 1, textAlign: "center" }}>
-                  <h1>வேல் முருகா வேல் !</h1>
-                  <button
-                    onClick={() => window.open("https://example.com/ios-app", "_blank")}
+                {/* Centered Image */}
+                <div
+                  className="mb-4"
+                  style={{ marginTop: "20px", marginBottom: "20px" }}
+                >
+                  <img
+                    src="5.png"
+                    alt="Center Image"
+                    className="img-fluid"
                     style={{
-                      padding: "10px 20px",
-                      fontSize: "14px",
-                      backgroundColor: "#28A745",
-                      color: "#fff",
-                      border: "none",
-                      borderRadius: "5px",
-                      cursor: "pointer",
+                      width: "300px",
+                      height: "180px",
+                      objectFit: "contain",
+                    }}
+                  />
+                </div>
+
+                {/* Centered Text */}
+                <div className="mt-4" style={{ marginTop: "40px" }}>
+                  <h2
+                    style={{
+                      fontWeight: "bold", // Apply bold to the text
                     }}
                   >
-                    Download iOS App
-                  </button>
+                    யாமிருக்க பயமென் !!!
+                  </h2>
+                  <h2
+                    style={{
+                      fontWeight: "bold", // Apply bold to the text
+                    }}
+                  >
+                    வேலும் மயிலும் துணை
+                  </h2>
                 </div>
               </div>
 
-              {/* Centered Image */}
-              <div>
-                <img
-                  src="logo512.png"
-                  alt="Center Image"
-                  style={{
-                    width: "300px",
-                    height: "auto",
-                    objectFit: "contain",
-                    marginTop: "20px",
-                  }}
-                />
-              </div>
+              {/* Custom CSS for mobile screens */}
+              <style>
+                {`
+                  body {
+                    font-family: 'Noto Sans Tamil', sans-serif;
+                    margin: 0;
+                    padding: 0;
+                  }
 
-              {/* Hello World and Welcome Text */}
-              <div style={{ marginTop: "20px" }}>
-                <h1>யாமிருக்க பயமென் !!!</h1>
-                <h1>வேலும் மயிலும் துணை</h1>
-              </div>
-            </div>
+                  h1, h2, h3, h4, h5, h6 {
+                    font-family: 'Noto Sans Tamil', sans-serif;
+                    margin: 0;
+                    font-weight: bold; /* Make all headings bold */
+                  }
+
+                  button {
+                    font-family: 'Noto Sans Tamil', sans-serif;
+                  }
+
+                  .container, .row, .col {
+                    font-family: 'Noto Sans Tamil', sans-serif;
+                  }
+
+                  @media (max-width: 767px) {
+                    .mb-4 {
+                      margin-top: -30px; /* Adjust margin-top to move the image upwards */
+                    }
+
+                    .mt-4 {
+                      margin-top: -30px; /* Adjust margin-top for the text */
+                    }
+                  }
+                `}
+              </style>
+            </>
           }
         />
       </Routes>
