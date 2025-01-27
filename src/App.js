@@ -103,7 +103,7 @@ function App() {
                     marginBottom: "10px",
                   }}
                 />
-                <h1
+                <h2
                   style={{
                     margin: 0,
                     fontWeight: "bold", // Apply bold to the title
@@ -112,7 +112,7 @@ function App() {
                   className="title"
                 >
                   தைப்பூச ஜீவ இரத ஊர்வலம் நேரடி இடமறியல் அமைப்பு
-                </h1>
+                </h2>
 
                 {/* Buttons */}
                 <div
