@@ -78,7 +78,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Main page with buttons */}
         <Route
           path="/"
           element={
@@ -89,10 +88,18 @@ function App() {
                 display: "flex",
                 flexDirection: "column",
                 fontFamily: '"Noto Sans Tamil", sans-serif', // Apply Noto Sans Tamil font
+                padding: 0,
+                margin: 0,
               }}
             >
               {/* Logo and Title */}
-              <div style={{ flex: "0 1 auto", marginBottom: "10px" }}>
+              <div
+                style={{
+                  flex: "0 1 auto",
+                  marginBottom: "20px",
+                  padding: "10px",
+                }}
+              >
                 <img
                   src="/logo512.png"
                   alt="Logo"
@@ -108,6 +115,7 @@ function App() {
                     margin: 0,
                     fontWeight: "bold", // Apply bold to the title
                     whiteSpace: "normal", // Allow wrapping text
+                    fontSize: "24px",
                   }}
                   className="title"
                 >
@@ -175,6 +183,7 @@ function App() {
                   flex: "1 1 auto",
                   width: "100%",
                   height: "100%",
+                  position: "relative", // Ensure map stays responsive
                 }}
               ></div>
             </div>
@@ -190,7 +199,6 @@ function App() {
                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
                 rel="stylesheet"
               />
-
               <div className="container text-center" style={{ paddingTop: "0" }}>
                 <div className="row my-3">
                   {/* Left Section */}
@@ -246,7 +254,7 @@ function App() {
                     <button
                       onClick={() =>
                         window.open(
-                          "https://jeevarathambukitbelimbingthaipusam.github.io/",
+                          "/",
                           "_blank"
                         )
                       }
