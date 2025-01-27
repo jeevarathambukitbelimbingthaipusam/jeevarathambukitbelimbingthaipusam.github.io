@@ -7,7 +7,8 @@ import { getDatabase, ref, onValue } from "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyDWU3bIK92Eig8u3bQN_0t-PrJSS39SnSs",
   authDomain: "temple-3ff20.firebaseapp.com",
-  databaseURL: "https://temple-3ff20-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  databaseURL:
+    "https://temple-3ff20-default-rtdb.asia-southeast1.firebasedatabase.app/",
   projectId: "temple-3ff20",
   storageBucket: "temple-3ff20.appspot.com",
   messagingSenderId: "692994408021",
@@ -106,7 +107,9 @@ function App() {
                   style={{
                     margin: 0,
                     fontWeight: "bold", // Apply bold to the title
+                    whiteSpace: "normal", // Allow wrapping text
                   }}
+                  className="title"
                 >
                   தைப்பூச ஜீவ இரத ஊர்வலம் நேரடி இடமறியல் அமைப்பு
                 </h1>
@@ -188,8 +191,8 @@ function App() {
                 rel="stylesheet"
               />
 
-              <div className="container text-center">
-                <div className="row my-5">
+              <div className="container text-center" style={{ paddingTop: "0" }}>
+                <div className="row my-3">
                   {/* Left Section */}
                   <div className="col-6 d-flex flex-column align-items-center mb-4">
                     <img
@@ -202,13 +205,7 @@ function App() {
                         objectFit: "cover", // Ensures the image covers the area
                       }}
                     />
-                    <h2
-                      style={{
-                        fontWeight: "bold", // Apply bold to the title in /app
-                      }}
-                    >
-                      வாழ்க வளமுடன் !
-                    </h2>
+                    <h2 style={{ fontWeight: "bold" }}>வாழ்க வளமுடன் !</h2>
                     <button
                       onClick={() =>
                         window.open(
@@ -234,13 +231,7 @@ function App() {
                         objectFit: "cover", // Ensures the image covers the area
                       }}
                     />
-                    <h2
-                      style={{
-                        fontWeight: "bold", // Apply bold to the title in /app
-                      }}
-                    >
-                      வேல் முருகா வேல் !
-                    </h2>
+                    <h2 style={{ fontWeight: "bold" }}>வேல் முருகா வேல் !</h2>
                     <button
                       onClick={() =>
                         window.open(
@@ -250,16 +241,13 @@ function App() {
                       }
                       className="btn btn-success mt-3"
                     >
-                      Download iOS App
+                      Download iOS
                     </button>
                   </div>
                 </div>
 
                 {/* Centered Image */}
-                <div
-                  className="mb-4"
-                  style={{ marginTop: "20px", marginBottom: "20px" }}
-                >
+                <div className="mb-4" style={{ marginTop: "0", marginBottom: "20px" }}>
                   <img
                     src="5.png"
                     alt="Center Image"
@@ -273,58 +261,11 @@ function App() {
                 </div>
 
                 {/* Centered Text */}
-                <div className="mt-4" style={{ marginTop: "40px" }}>
-                  <h2
-                    style={{
-                      fontWeight: "bold", // Apply bold to the text
-                    }}
-                  >
-                    யாமிருக்க பயமென் !!!
-                  </h2>
-                  <h2
-                    style={{
-                      fontWeight: "bold", // Apply bold to the text
-                    }}
-                  >
-                    வேலும் மயிலும் துணை
-                  </h2>
+                <div className="mt-4" style={{ marginTop: "20px" }}>
+                  <h2 style={{ fontWeight: "bold" }}>யாமிருக்க பயமென் !!!</h2>
+                  <h2 style={{ fontWeight: "bold" }}>வேலும் மயிலும் துணை</h2>
                 </div>
               </div>
-
-              {/* Custom CSS for mobile screens */}
-              <style>
-                {`
-                  body {
-                    font-family: 'Noto Sans Tamil', sans-serif;
-                    margin: 0;
-                    padding: 0;
-                  }
-
-                  h1, h2, h3, h4, h5, h6 {
-                    font-family: 'Noto Sans Tamil', sans-serif;
-                    margin: 0;
-                    font-weight: bold; /* Make all headings bold */
-                  }
-
-                  button {
-                    font-family: 'Noto Sans Tamil', sans-serif;
-                  }
-
-                  .container, .row, .col {
-                    font-family: 'Noto Sans Tamil', sans-serif;
-                  }
-
-                  @media (max-width: 767px) {
-                    .mb-4 {
-                      margin-top: -30px; /* Adjust margin-top to move the image upwards */
-                    }
-
-                    .mt-4 {
-                      margin-top: -30px; /* Adjust margin-top for the text */
-                    }
-                  }
-                `}
-              </style>
             </>
           }
         />
