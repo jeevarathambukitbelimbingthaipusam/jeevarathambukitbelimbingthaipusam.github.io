@@ -3,16 +3,15 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 
-// Firebase configuration
+// Firebase configuration using environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyDWU3bIK92Eig8u3bQN_0t-PrJSS39SnSs",
-  authDomain: "temple-3ff20.firebaseapp.com",
-  databaseURL:
-    "https://temple-3ff20-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId: "temple-3ff20",
-  storageBucket: "temple-3ff20.appspot.com",
-  messagingSenderId: "692994408021",
-  appId: "YOUR_APP_ID", // Replace with your app ID from Firebase project settings
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
@@ -43,7 +42,7 @@ function App() {
     }
 
     const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAUjjIy9Sd5r8T5nxIinHbcseCvNHKKag4&callback=initMap`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&callback=initMap`;
     script.async = true;
     script.defer = true;
 
@@ -109,7 +108,6 @@ function App() {
                     objectFit: "contain",
                     marginBottom: "-1px",
                     marginTop: "1px",
-
                   }}
                 />
                 <h2
@@ -187,7 +185,6 @@ function App() {
                   height: "100%",
                   position: "relative", // Ensure map stays responsive
                   marginTop: "-20px", // Adjust the top margin here
-
                 }}
               ></div>
             </div>
@@ -256,12 +253,7 @@ function App() {
                   {/* Download iOS button below right section */}
                   <div className="col-6 d-flex justify-content-center">
                     <button
-                      onClick={() =>
-                        window.open(
-                          "/",
-                          "_blank"
-                        )
-                      }
+                      onClick={() => window.open("/", "_blank")}
                       className="btn btn-success"
                     >
                       Download iOS
